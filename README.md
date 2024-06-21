@@ -1,5 +1,8 @@
 
+```python
 # GitHub Actions Runner Images
+
+```
 
 **Table of Contents**
 
@@ -12,13 +15,13 @@
 - [How to Interact with the Repo](#how-to-interact-with-the-repo)
 - [FAQs](#faqs)
 
-## About
-
+**## About
+**
 This repository contains the source code used to create the VM images for [GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners) used for Actions, as well as for [Microsoft-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#use-a-microsoft-hosted-agent) used for Azure Pipelines.
 To build a VM machine from this repo's source, see the [instructions](docs/create-image-and-azure-resources.md).
 
-## Available Images
-
+**## Available Images
+**
 | Image | YAML Label | Included Software | Rollout Status of Latest Image Release |
 | --------------------|---------------------|--------------------|--------------------|
 | Ubuntu 24.04 <sup>beta</sup> | `ubuntu-24.04` | [ubuntu-24.04] | ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fgist.githubusercontent.com%2Fshamil-mubarakshin%2Ffeddf2f2b1120c2d682eeb00438c4977%2Fraw%2Fubuntu24.json) |
@@ -33,38 +36,39 @@ To build a VM machine from this repo's source, see the [instructions](docs/creat
 | Windows Server 2022 | `windows-latest` or `windows-2022` | [windows-2022] | ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fgist.githubusercontent.com%2Fshamil-mubarakshin%2Ffeddf2f2b1120c2d682eeb00438c4977%2Fraw%2Fwin22.json) |
 | Windows Server 2019 | `windows-2019` | [windows-2019] | ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fgist.githubusercontent.com%2Fshamil-mubarakshin%2Ffeddf2f2b1120c2d682eeb00438c4977%2Fraw%2Fwin19.json) |
 
-### Label scheme
+**### Label scheme
+**
 
 - In general the `-latest` label is used for the latest OS image version that is GA
 - Before moving the`-latest` label to a new OS version we will announce the change and give sufficient lead time for users to update their workflows
 
-[ubuntu-24.04]: https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md
-[ubuntu-22.04]: https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
-[ubuntu-20.04]: https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md
-[windows-2022]: https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md
-[windows-2019]: https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md
-[macOS-11]: https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md
-[macOS-12]: https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md
-[macOS-13]: https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md
-[macOS-13-arm64]: https://github.com/actions/runner-images/blob/main/images/macos/macos-13-arm64-Readme.md
-[macOS-14]: https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
-[macOS-14-arm64]: https://github.com/actions/runner-images/blob/main/images/macos/macos-14-arm64-Readme.md
-[self-hosted runners]: https://help.github.com/en/actions/hosting-your-own-runners
+**[ubuntu-24.04]: <https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md>
+**[ubuntu-22.04]: <https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md>
+**[ubuntu-20.04]: [def]
+**[windows-2022]: <https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md>
+**[windows-2019]: [def2]
+**[macOS-11]: <https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md>
+**[macOS-12]: [def3]
+**[macOS-13]: <https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md>
+**[macOS-13-arm64]: [def4]
+**[macOS-14]: <https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md>
+**[macOS-14-arm64]: <https://github.com/actions/runner-images/blob/main/images/macos/macos-14-arm64-Readme.md>
+**[self-hosted runners]: <https://help.github.com/en/actions/hosting-your-own-runners>
 
-## Announcements
-
+**## Announcements
+**
 See notable upcoming changes by viewing issues with the [Announcement](https://github.com/actions/runner-images/labels/Announcement) label.
 
-## Image Definitions
-
-### Beta
-
+**## Image Definitions
+**
+**### Beta
+**
 The purpose of a Beta is to collect feedback on an image before it is released to GA. The goal of a Beta is to identify and fix any potential issues that exist on that
 image. Images are updated on a weekly cadence. Any workflows that run on a beta image do not fall under the customer [SLA](https://github.com/customer-terms/github-online-services-sla) in place for Actions.
 Customers choosing to use Beta images are encouraged to provide feedback in the runner-images repo by creating an issue. A Beta may take on different availability, i.e. public vs private.
 
-### GA
-
+**### GA
+**
 A GA (General Availability) image has been through a Beta period and is deemed ready for general use. Images are updated on a weekly cadence. In order to be moved to
 GA the image must meet the following criteria:
 
@@ -76,15 +80,14 @@ version for the underlying OS and
 This image type falls under the customer [SLA](https://github.com/customer-terms/github-online-services-sla) for actions. GA images are eventually deprecated according to our guidelines as we only support the
 latest 2 versions of an OS.
 
-#### Latest Migration Process
-
+**#### Latest Migration Process
+**
 GitHub Actions and Azure DevOps use the `-latest` YAML label (ex: `ubuntu-latest`, `windows-latest`, and `macos-latest`). These labels point towards the newest stable OS version available.
-
 
 The `-latest` migration process is gradual and happens over 1-2 months in order to allow customers to adapt their workflows to the newest OS version. During this process, any workflow using the `-latest` label, may see changes in the OS version in their workflows or pipelines. To avoid unwanted migration, users can specify a specific OS version in the yaml file (ex: macos-12, windows-2022, ubuntu-22.04).
 
-## Image Releases
-
+**## Image Releases
+**
 *How to best follow along with changes*
 
 1. Find the latest releases for this repository [here.](https://github.com/actions/runner-images/releases)
@@ -99,9 +102,13 @@ The `-latest` migration process is gradual and happens over 1-2 months in order 
 
 - We typically deploy weekly updates to the software on the runner images.
 
-## Software and Image Support
+**## Software and Image Support
+**
 
+```python
 ### Support Policy
+
+```
 
 - Tools and versions will typically be removed 6 months after they are deprecated or have reached end-of-life
 - We support (at maximum) 2 GA images and 1 beta image at a time. We begin the deprecation process of the oldest image label once the newest OS image label has been released to GA.
@@ -122,7 +129,10 @@ The `-latest` migration process is gradual and happens over 1-2 months in order 
 | Android NDK | 1 latest non-LTS, 2 latest LTS versions |
 | Xcode     | - all OS compatible versions side-by-side <br/> - for beta, GM versions - latest beta only <br/> - old patch versions are deprecated in 3 months |
 
+```python
 ### Package managers usage
+
+```
 
 We use third-party package managers to install software during the image generation process. The table below lists the package managers and the software installed.
 > **Note**: third-party repositories are re-evaluated every year to identify if they are still useful and secure.
@@ -135,7 +145,10 @@ We use third-party package managers to install software during the image generat
 | macOS            | [Homebrew](https://brew.sh)           | [aws-cli v2](https://github.com/aws/homebrew-tap) </br> [azure/bicep](https://github.com/Azure/homebrew-bicep) </br> [mongodb/brew](https://github.com/mongodb/homebrew-brew)                                                  |
 |                  | [pipx](https://pypa.github.io/pipx/)  | yamllint                       |
 
+```python
 ### Image Deprecation Policy
+
+```
 
 - Images begin the deprecation process of the oldest image label once a new GA OS version has been released.
 - Deprecation process begins with an announcement that sets a date for deprecation
@@ -143,8 +156,8 @@ We use third-party package managers to install software during the image generat
 - During this time there will be an Announcement pinned in the repo to remind users of the deprecation.
 - Finally GitHub will deprecate the image and it will no longer be available
 
-### Preinstallation Policy
-
+**### Preinstallation Policy
+**
 In general, these are the guidelines we follow when deciding what to pre-install on our images:
 
 - Popularity: widely-used tools and ecosystems will be given priority.
@@ -154,25 +167,29 @@ In general, these are the guidelines we follow when deciding what to pre-install
 - Time & Space on the Image: we will evaluate how much time is saved and how much space is used by having the tool pre-installed.
 - Support: If a tool requires the support of more than one version, we will consider the cost of this maintenance.
 
-### Default Version Update Policy
+**### Default Version Update Policy
+**
 
 - In general, once a new version is installed on the image, we announce the default version update 2 weeks prior to deploying it.
 - For potentially dangerous updates, we may extend the timeline up to 1 month between the announcement and deployment.
 
-## How to Interact with the Repo
+**## How to Interact with the Repo
+**
 
 - **Issues**: To file a bug report, or request tools to be added/updated, please [open an issue using the appropriate template](https://github.com/actions/runner-images/issues/new/choose)
 - **Discussions**: If you want to share your thoughts about image configuration, installed software, or bring a new idea, please create a new topic in a [discussion](https://github.com/actions/runner-images/discussions) for a corresponding category. Before making a new discussion please make sure no similar topics were created earlier.
 - For general questions about using the runner images or writing your Actions workflow, please open requests in the [GitHub Actions Community Forum](https://github.community/c/github-actions/41).
 
-## FAQs
-
+**## FAQs
+**
 <details>
    <summary><b><i>What images are available for GitHub Actions and Azure DevOps?</b></i></summary>
 
 The availability of images for GitHub Actions and Azure DevOps is the same. However, deprecation policies may differ. See documentation for more details:
+
 - [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources)
 - [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#software)
+
 </details>
 
 <details>
@@ -212,3 +229,12 @@ Please create an issue and get an approval from us to add this tool to the image
 We strongly encourage customers to build their own images using the main branch.
 This repository contains multiple branches and releases that serve as document milestones to reflect what software is installed in the images at certain point of time. Current builds are not idempotent and if one tries to build a runner image using the specific tag it is not guaranteed that the build will succeed.
 </details>
+
+**[def]: <https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md>
+**[def2]: <https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md>
+**[def3]: [def]
+**[def4]: <https://github.com/actions/runner-images/blob/main/images/macos/macos-13-arm64-Readme.md>
+```python
+[def]: <https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md>
+
+```

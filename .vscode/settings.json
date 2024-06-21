@@ -21,5 +21,11 @@
   ],
   "shellcheck.customArgs": [
     "-x"
-  ]
+  ],
+  "yaml.schemas": {
+    "https://davidanson.vscode-unpkg.net/DavidAnson/vscode-markdownlint/0.55.0/extension/markdownlint-cli2-config-schema.json": [
+      "vscode-vfs://github%2B7b2276223a312c22726566223a7b2274797065223a362c226964223a226d61696e227d7d/actions/runner-images/images.CI/linux-and-win/azure-pipelines/image-generation.yml",
+      "vscode-vfs://github%2B7b2276223a312c22726566223a7b2274797065223a362c226964223a226d61696e227d7d/actions/runner-images/images.CI/linux-and-win/azure-pipelines/ubuntu2004.yml"
+    ]
+  }
 }
